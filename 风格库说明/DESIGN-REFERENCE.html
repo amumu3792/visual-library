@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视觉风格库 · 设计引用知识库 (112 套)</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --panel: #ffffff; --ink: #1f2329; --muted: #6b7280;
+    --line: #e5e7eb; --accent: #2563eb; --accent-soft: #eff4ff; --code-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.7;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  /* Sidebar */
+  .sidebar {
+    width: 300px; flex: 0 0 300px; position: sticky; top: 0; align-self: flex-start;
+    height: 100vh; overflow-y: auto; background: var(--panel); border-right: 1px solid var(--line);
+    padding: 22px 16px;
+  }
+  .sidebar h1 { font-size: 15px; margin: 0 0 14px; color: var(--ink); }
+  .sidebar .hint { font-size: 12px; color: var(--muted); margin: 0 0 16px; }
+  .toc-nav { list-style: none; margin: 0; padding: 0; font-size: 13.5px; }
+  .toc-nav li { margin: 2px 0; }
+  .toc-h2 > a {
+    display: block; padding: 6px 10px; border-radius: 7px; color: var(--ink);
+    text-decoration: none; font-weight: 600;
+  }
+  .toc-sub { list-style: none; margin: 2px 0 6px; padding: 0 0 0 14px; }
+  .toc-h3 > a {
+    display: block; padding: 4px 10px; border-radius: 6px; color: var(--muted);
+    text-decoration: none; font-weight: 400; border-left: 2px solid var(--line);
+  }
+  .toc-nav a:hover { background: var(--accent-soft); color: var(--accent); }
+  .toc-nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+  .toc-h3 > a.active { border-left-color: var(--accent); color: var(--accent); }
+  /* Content */
+  .content { flex: 1 1 auto; min-width: 0; padding: 40px 56px 120px; }
+  .content-inner { max-width: 920px; margin: 0 auto; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 14px; padding: 40px 48px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+  .doc-heading { scroll-margin-top: 24px; margin-top: 38px; }
+  h1.doc-heading { font-size: 26px; border-bottom: 2px solid var(--line); padding-bottom: 10px; }
+  h2.doc-heading { font-size: 21px; color: #111827; border-left: 4px solid var(--accent); padding-left: 12px; }
+  h3.doc-heading { font-size: 17px; color: #1f2937; }
+  p { margin: 10px 0; }
+  a { color: var(--accent); }
+  img { max-width: 100%; height: auto; display: block; margin: 16px auto;
+    border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--code-bg); font-weight: 600; }
+  tr:nth-child(even) td { background: #fafafa; }
+  pre { background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.55; }
+  code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background: var(--code-bg); padding: 2px 5px; border-radius: 4px; font-size: 13px; }
+  pre code { background: none; padding: 0; }
+  blockquote { margin: 14px 0; padding: 8px 16px; border-left: 3px solid var(--accent);
+    background: var(--accent-soft); color: #374151; border-radius: 0 8px 8px 0; }
+  ul, ol { padding-left: 24px; }
+  li { margin: 4px 0; }
+  .menu-toggle { display: none; }
+  @media (max-width: 860px) {
+    .layout { flex-direction: column; }
+    .sidebar { position: static; width: 100%; height: auto; border-right: none;
+      border-bottom: 1px solid var(--line); }
+    .content { padding: 20px 14px 80px; }
+    .content-inner { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h1>📚 视觉风格库 · 设计引用知识库 (112 套)</h1>
+    <p class="hint"></p>
+    <ul class="toc-nav">
+<li class="toc-h2"><a href="#一项目概述" data-target="一项目概述">一、项目概述</a></li>
+<li class="toc-h2"><a href="#二目录结构" data-target="二目录结构">二、目录结构</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#命名规则" data-target="命名规则">命名规则</a></li>
+<li class="toc-h3"><a href="#路径引用方式md-文件内" data-target="路径引用方式md-文件内">路径引用方式（md 文件内）</a></li>
+</ul>
+<li class="toc-h2"><a href="#三stylejson-字段说明" data-target="三stylejson-字段说明">三、style.json 字段说明</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#31-基础信息" data-target="31-基础信息">3.1 基础信息</a></li>
+<li class="toc-h3"><a href="#32-环境变量-environment_variables" data-target="32-环境变量-environment_variables">3.2 环境变量 environment_variables</a></li>
+<li class="toc-h3"><a href="#33-风格保真锚点-style_fidelity_anchors" data-target="33-风格保真锚点-style_fidelity_anchors">3.3 风格保真锚点 style_fidelity_anchors</a></li>
+<li class="toc-h3"><a href="#34-来源规避清单-source_content_to_avoid" data-target="34-来源规避清单-source_content_to_avoid">3.4 来源规避清单 source_content_to_avoid</a></li>
+<li class="toc-h3"><a href="#35-视觉解构-visual_deconstruction" data-target="35-视觉解构-visual_deconstruction">3.5 视觉解构 visual_deconstruction</a></li>
+<li class="toc-h3"><a href="#36-构图规则-composition" data-target="36-构图规则-composition">3.6 构图规则 composition</a></li>
+<li class="toc-h3"><a href="#37-字体规范-typography" data-target="37-字体规范-typography">3.7 字体规范 typography</a></li>
+<li class="toc-h3"><a href="#38-色彩规范-color_palette" data-target="38-色彩规范-color_palette">3.8 色彩规范 color_palette</a></li>
+<li class="toc-h3"><a href="#39-图像处理-image_treatment" data-target="39-图像处理-image_treatment">3.9 图像处理 image_treatment</a></li>
+<li class="toc-h3"><a href="#310-设计规则-design_rules-do-avoid" data-target="310-设计规则-design_rules-do-avoid">3.10 设计规则 design_rules / do / avoid</a></li>
+<li class="toc-h3"><a href="#311-提示词模板-prompt_template" data-target="311-提示词模板-prompt_template">3.11 提示词模板 prompt_template</a></li>
+<li class="toc-h3"><a href="#312-负面提示词-negative_prompt" data-target="312-负面提示词-negative_prompt">3.12 负面提示词 negative_prompt</a></li>
+<li class="toc-h3"><a href="#313-示例-examples" data-target="313-示例-examples">3.13 示例 examples</a></li>
+</ul>
+<li class="toc-h2"><a href="#四md-文件说明" data-target="四md-文件说明">四、md 文件说明</a></li>
+<li class="toc-h2"><a href="#五如何使用" data-target="五如何使用">五、如何使用</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#51-ai-检索风格" data-target="51-ai-检索风格">5.1 AI 检索风格</a></li>
+<li class="toc-h3"><a href="#52-生成提示词" data-target="52-生成提示词">5.2 生成提示词</a></li>
+<li class="toc-h3"><a href="#53-切换画面比例" data-target="53-切换画面比例">5.3 切换画面比例</a></li>
+</ul>
+<li class="toc-h2"><a href="#六完整风格目录" data-target="六完整风格目录">六、完整风格目录</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#a" data-target="a">A</a></li>
+<li class="toc-h3"><a href="#b" data-target="b">B</a></li>
+<li class="toc-h3"><a href="#c" data-target="c">C</a></li>
+<li class="toc-h3"><a href="#d" data-target="d">D</a></li>
+<li class="toc-h3"><a href="#e" data-target="e">E</a></li>
+<li class="toc-h3"><a href="#f" data-target="f">F</a></li>
+<li class="toc-h3"><a href="#g" data-target="g">G</a></li>
+<li class="toc-h3"><a href="#h" data-target="h">H</a></li>
+<li class="toc-h3"><a href="#i" data-target="i">I</a></li>
+<li class="toc-h3"><a href="#j" data-target="j">J</a></li>
+<li class="toc-h3"><a href="#k" data-target="k">K</a></li>
+<li class="toc-h3"><a href="#l" data-target="l">L</a></li>
+<li class="toc-h3"><a href="#m" data-target="m">M</a></li>
+<li class="toc-h3"><a href="#n" data-target="n">N</a></li>
+<li class="toc-h3"><a href="#o" data-target="o">O</a></li>
+<li class="toc-h3"><a href="#p" data-target="p">P</a></li>
+<li class="toc-h3"><a href="#q" data-target="q">Q</a></li>
+<li class="toc-h3"><a href="#r" data-target="r">R</a></li>
+<li class="toc-h3"><a href="#s" data-target="s">S</a></li>
+<li class="toc-h3"><a href="#t" data-target="t">T</a></li>
+<li class="toc-h3"><a href="#u" data-target="u">U</a></li>
+<li class="toc-h3"><a href="#v" data-target="v">V</a></li>
+<li class="toc-h3"><a href="#w" data-target="w">W</a></li>
+<li class="toc-h3"><a href="#x" data-target="x">X</a></li>
+<li class="toc-h3"><a href="#y" data-target="y">Y</a></li>
+</ul>
+<li class="toc-h2"><a href="#七风格分类索引" data-target="七风格分类索引">七、风格分类索引</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#按渲染模式分类" data-target="按渲染模式分类">按渲染模式分类</a></li>
+<li class="toc-h3"><a href="#按画面比例" data-target="按画面比例">按画面比例</a></li>
+</ul>
+<li class="toc-h2"><a href="#八schema-文件" data-target="八schema-文件">八、Schema 文件</a></li>
+<li class="toc-h2"><a href="#九扩展指南" data-target="九扩展指南">九、扩展指南</a></li>
+<ul class="toc-sub">
+<li class="toc-h3"><a href="#新增风格" data-target="新增风格">新增风格</a></li>
+<li class="toc-h3"><a href="#修改风格" data-target="修改风格">修改风格</a></li>
+</ul>
+<li class="toc-h2"><a href="#十快速检索速查" data-target="十快速检索速查">十、快速检索速查</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <div class="content-inner">
+<h1>AI Visual Prompt Cookbook — 设计风格知识库</h1>
+<blockquote>
+<p>本文档是 AI 视觉提示词风格库的底层引用文档，供 AI 检索、匹配和使用 112 套设计风格系统。</p>
+</blockquote>
+<h2 id="目录" class="doc-heading">目录</h2>
+<ul>
+<li><a href="#design-sec-1">一、项目概述</a></li>
+<li><a href="#design-sec-2">二、目录结构</a></li>
+<li><a href="#design-sec-3">三、style.json 字段说明</a> — 环境变量、风格锚点、视觉解构、色彩规范、提示词模板等 14 个字段</li>
+<li><a href="#design-sec-4">四、md 文件说明</a> — 快捷提示词结构</li>
+<li><a href="#design-sec-5">五、如何使用</a> — AI 检索风格 / 生成提示词 / 切换画面比例</li>
+<li><a href="#design-sec-6">六、完整风格目录</a> — 112 套风格按字母排列，含名称/slug/概述/分类/情绪/色调/渲染</li>
+<li><a href="#design-sec-7">七、风格分类索引</a> — 按渲染模式 / 画面比例分类</li>
+<li><a href="#design-sec-8">八、Schema 文件</a></li>
+<li><a href="#design-sec-9">九、扩展指南</a> — 新增 / 修改风格</li>
+<li><a href="#design-sec-10">十、快速检索速查</a> — 按需求关键词映射到推荐风格 slug</li>
+</ul>
+<hr />
+<h2 id="一项目概述" class="doc-heading">一、项目概述</h2>
+<p>本项目是一个结构化的 AI 图像生成风格库，包含 <strong>112 套</strong>独立设计风格系统。每套风格都是一套完整的视觉语言体系，涵盖构图逻辑、色彩规范、字体处理、光影方向、渲染模式、提示词模板和负面提示词，可直接用于 AI 图像生成的风格锁定。</p>
+<ul>
+<li><strong>风格总数</strong>：112 套</li>
+<li><strong>每套风格包含</strong>：<code>style.json</code>（完整风格系统） + <code>.md</code>（快捷复制提示词） + 2 张预览图（16:9 横版 + 9:16 竖版）</li>
+<li><strong>支持尺寸</strong>：16:9 横版 / 9:16 竖版</li>
+<li><strong>版本</strong>：style-v2.1 schema</li>
+</ul>
+<hr />
+<h2 id="二目录结构" class="doc-heading">二、目录结构</h2>
+<pre><code>styles/
+├── README.md                          # 风格总索引（旧路径，需更新）
+├── [风格slug]/
+│   ├── style.json                     # 完整风格系统（权威源文件）
+│   ├── [风格slug].md                  # 快捷复制提示词（从 style.json 生成）
+│   ├── [风格slug]-16x9.jpg            # 16:9 横版预览图
+│   └── [风格slug]-9x16.jpg            # 9:16 竖版预览图
+├── DESIGN-REFERENCE.md                # ← 本文档
+└── .workbuddy/
+    └── memory/                        # 工作记忆
+</code></pre>
+<h3 id="命名规则" class="doc-heading">命名规则</h3>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>规则</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件夹名 / slug</td>
+<td>全小写连字符</td>
+<td><code>acid-lime-3d-streetwear-type-poster-style</code></td>
+</tr>
+<tr>
+<td>style.json</td>
+<td>固定文件名</td>
+<td><code>style.json</code></td>
+</tr>
+<tr>
+<td>md 文件</td>
+<td><code>{slug}.md</code></td>
+<td><code>acid-lime-3d-streetwear-type-poster-style.md</code></td>
+</tr>
+<tr>
+<td>横版预览图</td>
+<td><code>{slug}-16x9.jpg</code></td>
+<td><code>acid-lime-3d-streetwear-type-poster-style-16x9.jpg</code></td>
+</tr>
+<tr>
+<td>竖版预览图</td>
+<td><code>{slug}-9x16.jpg</code></td>
+<td><code>acid-lime-3d-streetwear-type-poster-style-9x16.jpg</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="路径引用方式md-文件内" class="doc-heading">路径引用方式（md 文件内）</h3>
+<p>md 文件已移入对应文件夹，所有引用均为相对路径：</p>
+<p><img alt="预览图" src="file:///F:/ai电商图片/AI-Visual-Prompt-Cookbook-main/styles/acid-lime-3d-streetwear-type-poster-style/acid-lime-3d-streetwear-type-poster-style-16x9.jpg" /> </p>
+<pre><code class="language-markdown">![预览图](acid-lime-3d-streetwear-type-poster-style/acid-lime-3d-streetwear-type-poster-style-16x9.jpg)  &lt;!-- 子文件夹图片 --&gt;
+[style.json](style.json)                                         &lt;!-- 同目录 JSON --&gt;
+[风格文件夹](./)                                                  &lt;!-- 当前目录 --&gt;
+</code></pre>
+<hr />
+<h2 id="三stylejson-字段说明" class="doc-heading">三、style.json 字段说明</h2>
+<p>每套风格的 <code>style.json</code> 是权威源文件，包含以下顶层字段：</p>
+<h3 id="31-基础信息" class="doc-heading">3.1 基础信息</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>style_name</code></td>
+<td>string</td>
+<td>风格完整名称（英文，带空格和首字母大写）</td>
+</tr>
+<tr>
+<td><code>style_slug</code></td>
+<td>string</td>
+<td>风格标识符（全小写连字符，与文件夹名一致）</td>
+</tr>
+<tr>
+<td><code>style_version</code></td>
+<td>string</td>
+<td>风格版本号，如 <code>"1.0.0"</code></td>
+</tr>
+<tr>
+<td><code>style_summary</code></td>
+<td>string</td>
+<td>一句话风格概述，描述核心视觉特征</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-环境变量-environment_variables" class="doc-heading">3.2 环境变量 <code>environment_variables</code></h3>
+<p>定义风格的可替换变量，AI 生成时填入具体值。所有风格共用同一套变量名：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SUBJECT</code></td>
+<td>主体：人物、吉祥物、物体或群体</td>
+</tr>
+<tr>
+<td><code>SUBJECT_ACTION</code></td>
+<td>主体的动作或姿态</td>
+</tr>
+<tr>
+<td><code>PRODUCT_OR_PROP</code></td>
+<td>产品、道具、工具或配件</td>
+</tr>
+<tr>
+<td><code>LOCATION</code></td>
+<td>场景、地点、环境设定</td>
+</tr>
+<tr>
+<td><code>BACKGROUND_ELEMENTS</code></td>
+<td>背景次要元素：道具、贴纸、标签等</td>
+</tr>
+<tr>
+<td><code>MAIN_TEXT</code></td>
+<td>主标题文字</td>
+</tr>
+<tr>
+<td><code>SECONDARY_TEXT</code></td>
+<td>副标题或辅助文案</td>
+</tr>
+<tr>
+<td><code>ACCENT_SYMBOL</code></td>
+<td>装饰符号：贴纸、图标、徽章等</td>
+</tr>
+<tr>
+<td><code>WARDROBE_STYLE</code></td>
+<td>服装造型、材质、表面处理方向</td>
+</tr>
+<tr>
+<td><code>STYLE_FIDELITY_ANCHORS</code></td>
+<td>风格保真锚点：必须保持可见的风格特征</td>
+</tr>
+<tr>
+<td><code>SOURCE_CONTENT_TO_AVOID</code></td>
+<td>需要规避的原始来源内容</td>
+</tr>
+<tr>
+<td><code>ASPECT_RATIO</code></td>
+<td>画面比例：<code>"9:16"</code> 或 <code>"16:9"</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-风格保真锚点-style_fidelity_anchors" class="doc-heading">3.3 风格保真锚点 <code>style_fidelity_anchors</code></h3>
+<p>字符串数组，列出该风格<strong>必须保持可见的核心视觉特征</strong>。AI 生成时需确保这些特征全部呈现。</p>
+<h3 id="34-来源规避清单-source_content_to_avoid" class="doc-heading">3.4 来源规避清单 <code>source_content_to_avoid</code></h3>
+<p>字符串数组，列出该风格<strong>不得复制或再现的原始来源内容</strong>，包括人物形象、品牌标识、特定文字、平台 UI 等。</p>
+<h3 id="35-视觉解构-visual_deconstruction" class="doc-heading">3.5 视觉解构 <code>visual_deconstruction</code></h3>
+<p>对象，包含 10 个维度的风格分析：</p>
+<table>
+<thead>
+<tr>
+<th>子字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>style_category</code></td>
+<td>风格分类定位</td>
+</tr>
+<tr>
+<td><code>composition_logic</code></td>
+<td>构图逻辑</td>
+</tr>
+<tr>
+<td><code>subject_placement</code></td>
+<td>主体位置策略</td>
+</tr>
+<tr>
+<td><code>camera_angle_or_perspective</code></td>
+<td>镜头角度与透视</td>
+</tr>
+<tr>
+<td><code>typography_style</code></td>
+<td>字体风格</td>
+</tr>
+<tr>
+<td><code>color_palette_behavior</code></td>
+<td>色彩行为</td>
+</tr>
+<tr>
+<td><code>graphic_elements</code></td>
+<td>图形元素</td>
+</tr>
+<tr>
+<td><code>texture_and_finish</code></td>
+<td>质感与表面处理</td>
+</tr>
+<tr>
+<td><code>lighting</code></td>
+<td>光影方向</td>
+</tr>
+<tr>
+<td><code>mood</code></td>
+<td>情绪氛围</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-构图规则-composition" class="doc-heading">3.6 构图规则 <code>composition</code></h3>
+<table>
+<thead>
+<tr>
+<th>子字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>primary_structure</code></td>
+<td>字符串数组，主要构图步骤</td>
+</tr>
+<tr>
+<td><code>vertical_9x16</code></td>
+<td>竖版构图说明</td>
+</tr>
+<tr>
+<td><code>horizontal_16x9</code></td>
+<td>横版构图说明</td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-字体规范-typography" class="doc-heading">3.7 字体规范 <code>typography</code></h3>
+<table>
+<thead>
+<tr>
+<th>子字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>headline</code></td>
+<td>主标题字体风格</td>
+</tr>
+<tr>
+<td><code>secondary_text</code></td>
+<td>副标题字体风格</td>
+</tr>
+<tr>
+<td><code>text_orientation</code></td>
+<td>文字方向</td>
+</tr>
+<tr>
+<td><code>text_behavior</code></td>
+<td>文字使用规则</td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-色彩规范-color_palette" class="doc-heading">3.8 色彩规范 <code>color_palette</code></h3>
+<table>
+<thead>
+<tr>
+<th>子字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dominant</code></td>
+<td>字符串数组，主色调</td>
+</tr>
+<tr>
+<td><code>accents</code></td>
+<td>字符串数组，辅助色/点缀色</td>
+</tr>
+<tr>
+<td><code>behavior</code></td>
+<td>色彩使用规则</td>
+</tr>
+</tbody>
+</table>
+<h3 id="39-图像处理-image_treatment" class="doc-heading">3.9 图像处理 <code>image_treatment</code></h3>
+<table>
+<thead>
+<tr>
+<th>子字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rendering_mode</code></td>
+<td>渲染模式（如 C4D、手绘、摄影等）</td>
+</tr>
+<tr>
+<td><code>surface_quality</code></td>
+<td>表面质感</td>
+</tr>
+<tr>
+<td><code>lighting</code></td>
+<td>光照</td>
+</tr>
+<tr>
+<td><code>depth</code></td>
+<td>景深</td>
+</tr>
+<tr>
+<td><code>post_processing</code></td>
+<td>后期处理</td>
+</tr>
+</tbody>
+</table>
+<h3 id="310-设计规则-design_rules-do-avoid" class="doc-heading">3.10 设计规则 <code>design_rules</code> / <code>do</code> / <code>avoid</code></h3>
+<ul>
+<li><code>design_rules</code>：字符串数组，核心设计规则</li>
+<li><code>do</code>：字符串数组，推荐做法</li>
+<li><code>avoid</code>：字符串数组，需要避免的做法</li>
+</ul>
+<h3 id="311-提示词模板-prompt_template" class="doc-heading">3.11 提示词模板 <code>prompt_template</code></h3>
+<p>完整的 AI 提示词模板字符串，使用 <code>{变量名}</code> 占位符引用环境变量。填入具体值后可直接用于图像生成。</p>
+<h3 id="312-负面提示词-negative_prompt" class="doc-heading">3.12 负面提示词 <code>negative_prompt</code></h3>
+<p>逗号分隔的负面提示词字符串，列出生成时需要避免的所有元素。</p>
+<h3 id="313-示例-examples" class="doc-heading">3.13 示例 <code>examples</code></h3>
+<p>数组，每套风格包含 3-4 个示例用例，每个示例结构：</p>
+<pre><code class="language-json">{
+  &quot;case_name&quot;: &quot;用例名称&quot;,
+  &quot;values&quot;: {
+    &quot;SUBJECT&quot;: &quot;...&quot;,
+    &quot;SUBJECT_ACTION&quot;: &quot;...&quot;,
+    &quot;PRODUCT_OR_PROP&quot;: &quot;...&quot;,
+    &quot;LOCATION&quot;: &quot;...&quot;,
+    &quot;BACKGROUND_ELEMENTS&quot;: &quot;...&quot;,
+    &quot;MAIN_TEXT&quot;: &quot;...&quot;,
+    &quot;SECONDARY_TEXT&quot;: &quot;...&quot;,
+    &quot;ACCENT_SYMBOL&quot;: &quot;...&quot;,
+    &quot;WARDROBE_STYLE&quot;: &quot;...&quot;,
+    &quot;STYLE_FIDELITY_ANCHORS&quot;: &quot;...&quot;,
+    &quot;SOURCE_CONTENT_TO_AVOID&quot;: &quot;...&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="四md-文件说明" class="doc-heading">四、md 文件说明</h2>
+<p>每个 <code>.md</code> 文件是从 <code>style.json</code> 自动生成的快捷提示词，结构：</p>
+<ol>
+<li><strong>风格名称</strong>（H1 标题）</li>
+<li><strong>预览图</strong>（16:9 横版，相对路径引用）</li>
+<li><strong>风格概述</strong>（一段话描述）</li>
+<li><strong>Copy Prompt</strong>（可直接复制的完整提示词代码块，含默认示例值）</li>
+<li><strong>Full Style</strong>（style.json 和文件夹链接）</li>
+</ol>
+<blockquote>
+<p>md 文件底部注释：<code>&lt;!-- Generated by scripts/generate-copy-prompts.py. Do not edit manually. --&gt;</code></p>
+</blockquote>
+<hr />
+<h2 id="五如何使用" class="doc-heading">五、如何使用</h2>
+<h3 id="51-ai-检索风格" class="doc-heading">5.1 AI 检索风格</h3>
+<p><strong>按需求匹配风格的推荐流程：</strong></p>
+<ol>
+<li>明确需求关键词（行业、情绪、色彩、渲染类型、画面比例等）</li>
+<li>查阅下方「完整风格目录」，按 <code>category</code>（风格分类）和 <code>mood</code>（情绪氛围）匹配</li>
+<li>打开对应文件夹的 <code>style.json</code> 获取完整风格系统</li>
+<li>使用 <code>prompt_template</code> + 环境变量值生成最终提示词</li>
+<li>参考预览图确认视觉效果</li>
+</ol>
+<p><strong>按色彩匹配：</strong> 查阅目录中的 <code>主色调</code> 列，找到符合品牌色或需求色调的风格。</p>
+<p><strong>按渲染类型匹配：</strong> 查阅目录中的 <code>渲染模式</code> 列，区分 3D 渲染、手绘、摄影、拼贴等。</p>
+<p><strong>按情绪匹配：</strong> 查阅目录中的 <code>情绪氛围</code> 列，匹配活泼、严肃、怀旧、赛博等调性。</p>
+<h3 id="52-生成提示词" class="doc-heading">5.2 生成提示词</h3>
+<p><strong>方式一：使用 md 快捷提示词（快速）</strong></p>
+<p>直接打开 <code>{slug}/{slug}.md</code>，复制 Copy Prompt 代码块中的文本，替换其中的主体、动作、产品等值即可。</p>
+<p><strong>方式二：使用 style.json 模板（精确）</strong></p>
+<ol>
+<li>读取 <code>style.json</code> 中的 <code>prompt_template</code> 字段</li>
+<li>将 <code>{ASPECT_RATIO}</code>、<code>{SUBJECT}</code> 等占位符替换为具体值</li>
+<li>同时使用 <code>negative_prompt</code> 作为负面提示词</li>
+<li>参考 <code>style_fidelity_anchors</code> 确保风格特征完整</li>
+</ol>
+<p><strong>方式三：参考示例用例（学习）</strong></p>
+<p>阅读 <code>examples</code> 数组中的 3-4 个示例，了解不同场景下环境变量的填法，照此模式创作新用例。</p>
+<h3 id="53-切换画面比例" class="doc-heading">5.3 切换画面比例</h3>
+<p>每套风格同时支持 16:9 和 9:16：
+- 修改 <code>ASPECT_RATIO</code> 环境变量为 <code>"16:9"</code> 或 <code>"9:16"</code>
+- 参照 <code>composition.vertical_9x16</code> 或 <code>composition.horizontal_16x9</code> 调整构图
+- 预览图分别对应 <code>{slug}-16x9.jpg</code> 和 <code>{slug}-9x16.jpg</code></p>
+<hr />
+<h2 id="六完整风格目录" class="doc-heading">六、完整风格目录</h2>
+<blockquote>
+<p>以下按字母顺序列出全部 112 套风格。每条包含：风格名称、slug、概述、风格分类、情绪氛围、主色调、渲染模式。</p>
+</blockquote>
+<h3 id="a" class="doc-heading">A</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Acid Lime 3D Streetwear Type Poster Style</td>
+<td><code>acid-lime-3d-streetwear-type-poster-style</code></td>
+<td>光泽 C4D 街头海报系统：浅色工作室空间、超大黑色块体排版、酸橙色记号笔笔触</td>
+<td>Glossy C4D youth-fashion poster</td>
+<td>时髦、活泼、略带赛博</td>
+<td>cool pale gray, off-white, deep black, acid lime</td>
+<td>C4D 3D 渲染</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Analog Sticker Diary Portrait Poster Style</td>
+<td><code>analog-sticker-diary-portrait-poster-style</code></td>
+<td>怀旧模拟日记拼贴肖像系统：大侧面插画主体、奶油方格纸背景</td>
+<td>模拟日记拼贴肖像</td>
+<td>怀旧、温暖</td>
+<td>—</td>
+<td>手绘插画</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Backseat Transit Doodle Letter Poster Style</td>
+<td><code>backseat-transit-doodle-letter-poster-style</code></td>
+<td>真实后座交通照片转化为高能旅行海报</td>
+<td>旅行海报</td>
+<td>活力、旅行</td>
+<td>—</td>
+<td>摄影 + 涂鸦</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b" class="doc-heading">B</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>Black Cutout Food Card Ad</td>
+<td><code>black-cutout-food-card-ad-style</code></td>
+<td>黑底食品推广风格：不规则奶油纸卡片、手刷中文大字、剪贴食品摄影</td>
+<td>手工中文街头食品广告</td>
+<td>便宜、手工、温暖、响亮</td>
+<td>—</td>
+<td>照片拼贴</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blue Bubble Fisheye Action Poster Style</td>
+<td><code>blue-bubble-fisheye-action-poster-style</code></td>
+<td>白底青年文化动作海报：矩形鱼眼照片、超大蓝色排版</td>
+<td>青年文化动作海报</td>
+<td>活力</td>
+<td>—</td>
+<td>鱼眼摄影</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Blue Chinese Perspective Type Canyon Style</td>
+<td><code>blue-chinese-perspective-type-canyon-style</code></td>
+<td>中文排版海报系统：极端一点透视走廊</td>
+<td>中文排版海报</td>
+<td>紧迫、响亮、压缩、零售广告</td>
+<td>—</td>
+<td>透视排版</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Blue Halftone Ransom Zine Poster Style</td>
+<td><code>blue-halftone-ransom-zine-poster-style</code></td>
+<td>粗犷钴蓝勒索杂志海报：撕碎白纸碎片、黑色照片复印件</td>
+<td>Ransom zine 海报</td>
+<td>粗犷、DIY</td>
+<td>—</td>
+<td>半调复印</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Blue HUD Macro Creator Tech Poster</td>
+<td><code>blue-hud-macro-product-poster</code></td>
+<td>高密度蓝色创作者科技广告：微距 3D 硬件、超大棱纹手套、电蓝 HUD 面板</td>
+<td>3D 创作者科技海报</td>
+<td>未来感、产品发布</td>
+<td>—</td>
+<td>C4D 3D 渲染</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Blue Lime Kinetic Comic Type Poster Style</td>
+<td><code>blue-lime-kinetic-comic-type-poster-style</code></td>
+<td>响亮平面漫画海报：电蓝网格纸、超大霓虹绿</td>
+<td>漫画海报</td>
+<td>响亮、活力</td>
+<td>—</td>
+<td>平面漫画</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Bold Anime Reaction Thumbnail Style</td>
+<td><code>bold-anime-reaction-thumbnail-style</code></td>
+<td>高冲击力动漫网页缩略图：超大反应角色、粗体黄色标题</td>
+<td>动漫缩略图</td>
+<td>高冲击、夸张</td>
+<td>—</td>
+<td>动漫插画</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bold Block Mascot Poster Style</td>
+<td><code>bold-block-mascot-poster-style</code></td>
+<td>密集平面海报：巨型黑色展示字体、粗壮白色吉祥物</td>
+<td>吉祥物海报</td>
+<td>活泼、直率</td>
+<td>—</td>
+<td>平面插画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c" class="doc-heading">C</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>Chromatic Fisheye Orbit Pop Poster Style</td>
+<td><code>chromatic-fisheye-orbit-pop-poster-style</code></td>
+<td>高调流行海报：极端鱼眼摄影、凸面玻璃穹顶构图</td>
+<td>流行海报</td>
+<td>高调、流行</td>
+<td>—</td>
+<td>鱼眼摄影</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Clean Triptych Travel Vlog Thumbnail Style</td>
+<td><code>clean-triptych-travel-vlog-thumbnail-style</code></td>
+<td>干净旅行 Vlog 缩略图：三块垂直摄影面板、超大标题</td>
+<td>旅行缩略图</td>
+<td>干净、整洁</td>
+<td>—</td>
+<td>摄影拼贴</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cobalt Megatype Roadside Travel Editorial</td>
+<td><code>cobalt-megatype-roadside-travel-editorial-style</code></td>
+<td>怀旧路边旅行编辑海报：裁切钴蓝超大字体</td>
+<td>旅行编辑海报</td>
+<td>怀旧、旅行</td>
+<td>—</td>
+<td>编辑设计</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Cobalt Torn Didone Portrait Editorial</td>
+<td><code>cobalt-torn-didone-portrait-editorial-style</code></td>
+<td>稀疏时尚编辑海报：暖纸场地、居中半调肖像</td>
+<td>时尚编辑</td>
+<td>稀疏、优雅</td>
+<td>—</td>
+<td>半调印刷</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Cobalt Xerox Script Editorial Poster</td>
+<td><code>cobalt-xerox-script-editorial-poster-style</code></td>
+<td>压缩对抗性钴蓝编辑海报：碎片化 grotesk 标题</td>
+<td>编辑海报</td>
+<td>对抗、压缩</td>
+<td>—</td>
+<td>复印拼贴</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Coral Window Megatype Motion Poster</td>
+<td><code>coral-window-megatype-motion-poster-style</code></td>
+<td>触感编辑动态海报：珊瑚红纸场地、冷色窗户</td>
+<td>动态编辑海报</td>
+<td>动感而克制</td>
+<td>coral red, pale powder blue, charcoal</td>
+<td>编辑设计</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Cozy Bedroom Doodle Companion Snapshot Style</td>
+<td><code>cozy-bedroom-doodle-companion-snapshot-style</code></td>
+<td>随意低光家居照片：大平面 2D 抱枕玩伴合成</td>
+<td>家居照片</td>
+<td>温馨、随意</td>
+<td>—</td>
+<td>摄影 + 2D 合成</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Crayon Catalog Doodle Poster Style</td>
+<td><code>crayon-catalog-doodle-poster-style</code></td>
+<td>稀疏产品目录海报：儿童蜡笔画风格</td>
+<td>产品目录海报</td>
+<td>童趣、手工</td>
+<td>—</td>
+<td>蜡笔手绘</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Cream Smoke City Manga Poster Style</td>
+<td><code>cream-smoke-city-manga-poster-style</code></td>
+<td>竖版和横版插画系统：精细漫画墨线、巨大烟雾城市</td>
+<td>城市漫画插画</td>
+<td>烟雾、城市</td>
+<td>—</td>
+<td>漫画插画</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Crimson Ink Manga Dossier</td>
+<td><code>crimson-ink-manga-dossier</code></td>
+<td>高密度漫画编辑档案海报：戏剧性前缩插画英雄、超大标题</td>
+<td>漫画编辑档案</td>
+<td>戏剧性、密集</td>
+<td>—</td>
+<td>手绘漫画</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Crimson Noir Newsprint Editorial</td>
+<td><code>crimson-noir-newsprint-editorial-style</code></td>
+<td>精英文化杂志封面：纪念性灰度肖像、窄版红黑刊头</td>
+<td>文化杂志封面</td>
+<td>严肃、知性、电影感</td>
+<td>—</td>
+<td>灰度摄影</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Cyan Grain Macro Megatype Poster</td>
+<td><code>cyan-grain-macro-megatype-poster-style</code></td>
+<td>稀疏实验编辑海报：极度放大的微距照片</td>
+<td>实验编辑海报</td>
+<td>实验、稀疏</td>
+<td>—</td>
+<td>微距摄影</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Cyan Red Shockwave Type Poster Style</td>
+<td><code>cyan-red-shockwave-type-poster-style</code></td>
+<td>平面插画海报：饱和青色场地、超大红色块体排版</td>
+<td>平面流行海报</td>
+<td>噪杂、庆祝、快速</td>
+<td>—</td>
+<td>平面插画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="d" class="doc-heading">D</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>Dusk Cyan Layered Type Poster Style</td>
+<td><code>dusk-cyan-layered-type-poster-style</code></td>
+<td>全出血黄昏照片海报：深蓝剪影、超大青白排版</td>
+<td>摄影编辑海报</td>
+<td>平静、电影感、怀旧</td>
+<td>—</td>
+<td>摄影叠加排版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="e" class="doc-heading">E</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26</td>
+<td>Electric Blue Cutout Manga Poster Style</td>
+<td><code>electric-blue-cutout-manga-poster-style</code></td>
+<td>饱和电蓝场地插画海报：锐利白色剪贴、漫画能量</td>
+<td>电蓝漫画海报</td>
+<td>独立、活力</td>
+<td>—</td>
+<td>漫画插画</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Electric Blue Silhouette Product Launch Style</td>
+<td><code>electric-blue-silhouette-product-launch-style</code></td>
+<td>稀疏高端消费科技发布海报：黑色负空间、蓝色剪影</td>
+<td>消费电子海报</td>
+<td>安静、高端、悬念</td>
+<td>—</td>
+<td>极简合成</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Electric Cobalt Motion Type Poster</td>
+<td><code>electric-cobalt-motion-type-poster-style</code></td>
+<td>高能社区活动海报：全出血运动模糊照片 + 超大排版</td>
+<td>社区活动海报</td>
+<td>高能</td>
+<td>deep cobalt blue, ultramarine, royal blue</td>
+<td>摄影 + 排版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="f" class="doc-heading">F</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29</td>
+<td>Fantasy Scribble Mascot Poster Style</td>
+<td><code>fantasy-scribble-mascot-poster-style</code></td>
+<td>原始手绘奇幻海报：超大不均字母、霓虹记号笔吉祥物</td>
+<td>奇幻手绘海报</td>
+<td>梦幻、有趣、奇异</td>
+<td>—</td>
+<td>手绘记号笔</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Folded Diamond Perspective Type Poster Style</td>
+<td><code>folded-diamond-perspective-type-poster-style</code></td>
+<td>大胆极简编辑海报：低角度英雄摄影在菱形透视框内</td>
+<td>极简编辑海报</td>
+<td>大胆、极简</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Folded Newspaper Product Ad Style</td>
+<td><code>folded-newspaper-product-ad-style</code></td>
+<td>折叠大报产品广告：密集双语报纸排版、写实产品</td>
+<td>报纸广告</td>
+<td>大胆、诱人、编辑</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Foreshortened Gradient Impact Ad Style</td>
+<td><code>foreshortened-gradient-impact-ad-style</code></td>
+<td>高端动态广告系统：虫眼超广角照片、前缩主体</td>
+<td>动态广告</td>
+<td>高端、动感</td>
+<td>—</td>
+<td>超广角摄影</td>
+</tr>
+</tbody>
+</table>
+<h3 id="g" class="doc-heading">G</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>33</td>
+<td>Gothic Cat Doodle Photo Collage Style</td>
+<td><code>gothic-cat-doodle-photo-collage-style</code></td>
+<td>戏剧建筑摄影 + 卡通涂鸦猫拼贴</td>
+<td>照片插画拼贴</td>
+<td>哥特、俏皮</td>
+<td>—</td>
+<td>摄影 + 涂鸦</td>
+</tr>
+</tbody>
+</table>
+<h3 id="h" class="doc-heading">H</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34</td>
+<td>Halftone Assemblage Metaphor PSA Poster Style</td>
+<td><code>halftone-assemblage-metaphor-psa-poster-style</code></td>
+<td>稀疏复古 PSA 海报：一类材料排列成隐喻形状</td>
+<td>复古 PSA 海报</td>
+<td>公共服务、象征</td>
+<td>—</td>
+<td>半调摄影</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Hot Ink Comic Poster</td>
+<td><code>hot-ink-comic-poster</code></td>
+<td>响亮平面漫画传单：芥末黄场地、珊瑚红剪贴</td>
+<td>漫画传单</td>
+<td>活泼、嘈杂、手工</td>
+<td>—</td>
+<td>平面漫画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="i" class="doc-heading">I</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>36</td>
+<td>Ice Cyan Megatype Action Poster Style</td>
+<td><code>ice-cyan-megatype-action-poster-style</code></td>
+<td>动态编辑动作海报：冰白画布、超大深青排版</td>
+<td>体育文化编辑海报</td>
+<td>竞争、活力、抱负</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Impact Burst Halftone Comic Poster Style</td>
+<td><code>impact-burst-halftone-comic-poster-style</code></td>
+<td>响亮复古漫画海报：粗黑墨线、平涂高饱和色</td>
+<td>复古漫画海报</td>
+<td>响亮、复古</td>
+<td>—</td>
+<td>漫画半调</td>
+</tr>
+</tbody>
+</table>
+<h3 id="j" class="doc-heading">J</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>38</td>
+<td>Jade Glyph Grocer Collage Poster Style</td>
+<td><code>jade-glyph-grocer-collage-poster-style</code></td>
+<td>稀疏东亚杂货海报：暖奶油纸、超大翡翠绿字</td>
+<td>杂货海报</td>
+<td>朴素、东亚</td>
+<td>—</td>
+<td>拼贴插画</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Jagged Red Street Photo Event Poster Style</td>
+<td><code>jagged-red-street-photo-event-poster-style</code></td>
+<td>高冲击街头活动海报：黑白纪实照片 + 红色锯齿</td>
+<td>街头活动海报</td>
+<td>城市、手工、原生</td>
+<td>paper white, B&amp;W photo gray, hot red</td>
+<td>摄影 + 排版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="k" class="doc-heading">K</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>40</td>
+<td>K-Pop Apocalypse Ransom Zine Style</td>
+<td><code>k-pop-apocalypse-ransom-zine-style</code></td>
+<td>极繁 K-pop 时尚杂志拼贴：中央肖像剪贴、揉皱纸</td>
+<td>K-pop 时尚杂志</td>
+<td>极繁、叛逆</td>
+<td>—</td>
+<td>拼贴</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Kinetic Editorial Photo Collage</td>
+<td><code>kinetic-editorial-photo-collage-style</code></td>
+<td>高能动作海报：错落摄影瓷砖在白空间上</td>
+<td>动作海报</td>
+<td>青春、果断、快速</td>
+<td>white, black, pale sky blue</td>
+<td>摄影拼贴</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Kinetic Geometric Doodle Cutouts</td>
+<td><code>kinetic-geometric-doodle-cutouts</code></td>
+<td>稀疏俏皮插画：角色由超大几何涂鸦剪贴组装</td>
+<td>几何涂鸦插画</td>
+<td>友好、轻盈、幽默</td>
+<td>—</td>
+<td>几何插画</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Kinetic Luxury Street Fashion Cover Style</td>
+<td><code>kinetic-luxury-street-fashion-cover-style</code></td>
+<td>高端街头时尚杂志封面：侧面行走摄影</td>
+<td>街头时尚封面</td>
+<td>高端、街头</td>
+<td>stone beige, concrete gray, asphalt black</td>
+<td>时尚摄影</td>
+</tr>
+</tbody>
+</table>
+<h3 id="l" class="doc-heading">L</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>44</td>
+<td>Lime Loop Megatype Action Poster</td>
+<td><code>lime-loop-megatype-action-poster-style</code></td>
+<td>高能工作室动作海报：俯拍广角照片 + 超大排版</td>
+<td>体育编辑海报</td>
+<td>大胆、现代</td>
+<td>studio white, forest green</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Liquid Chrome Clearance Poster Style</td>
+<td><code>liquid-chrome-clearance-poster-style</code></td>
+<td>高冲击商业海报：光泽液态铬 3D 排版</td>
+<td>赛博零售海报</td>
+<td>超现实、赛博</td>
+<td>acid lime, chartreuse, mint</td>
+<td>3D 渲染</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Loose Scribble Riso Print Style</td>
+<td><code>loose-scribble-riso-print-style</code></td>
+<td>稀疏手工 Riso/丝网印海报：大简化主体</td>
+<td>Riso 印刷海报</td>
+<td>亲密、俏皮、手工</td>
+<td>—</td>
+<td>Riso 丝网印</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Luxury Perspective Checkerboard Editorial</td>
+<td><code>luxury-perspective-checkerboard-editorial</code></td>
+<td>高时尚编辑海报：低角度奢华摄影、红白棋盘格</td>
+<td>高时尚编辑</td>
+<td>奢华、高端</td>
+<td>studio white, signal red, deep black</td>
+<td>时尚摄影</td>
+</tr>
+</tbody>
+</table>
+<h3 id="m" class="doc-heading">M</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>48</td>
+<td>Manga Dossier Blueprint Poster</td>
+<td><code>manga-dossier-blueprint-poster</code></td>
+<td>做旧漫画角色档案海报：奶油纸边距、超大蓝图网格</td>
+<td>漫画档案海报</td>
+<td>档案、做旧</td>
+<td>—</td>
+<td>漫画 + 蓝图</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Market Brush Produce Poster Style</td>
+<td><code>market-brush-produce-poster-style</code></td>
+<td>稀疏生鲜市场海报：暖象牙纸、超大笔刷产品</td>
+<td>市场海报</td>
+<td>朴素、新鲜</td>
+<td>—</td>
+<td>笔刷插画</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Metro Doodle Snapshot Diary</td>
+<td><code>metro-doodle-snapshot-diary-style</code></td>
+<td>手持城市交通照片拼贴：地铁、公交、电车</td>
+<td>交通日记</td>
+<td>城市、日记</td>
+<td>—</td>
+<td>摄影 + 涂鸦</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Mono Noir Type Portrait Poster Style</td>
+<td><code>mono-noir-type-portrait-poster-style</code></td>
+<td>黑白编辑海报：高对比肖像 + 排版</td>
+<td>黑白编辑</td>
+<td>安静、克制</td>
+<td>—</td>
+<td>黑白摄影</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Monochrome Grid Sneaker Tech Spec</td>
+<td><code>monochrome-grid-sneaker-tech-spec</code></td>
+<td>黑白运动鞋产品分析海报：超大球鞋、技术网格</td>
+<td>运动鞋技术海报</td>
+<td>技术、分析</td>
+<td>—</td>
+<td>黑白摄影</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Monochrome Xerox Sports Dossier</td>
+<td><code>monochrome-xerox-sports-dossier</code></td>
+<td>黑白复印编辑拼贴：超大裁切主体</td>
+<td>体育编辑拼贴</td>
+<td>复古、档案</td>
+<td>—</td>
+<td>复印拼贴</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Mountain Trail Monster Doodle Poster Style</td>
+<td><code>mountain-trail-monster-doodle-poster-style</code></td>
+<td>户外徒步照片 + 平面手绘怪兽玩伴</td>
+<td>户外 + 涂鸦</td>
+<td>户外、俏皮</td>
+<td>—</td>
+<td>摄影 + 手绘</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Multi-Color Beverage Splash Ad System Style</td>
+<td><code>multi-color-beverage-splash-ad-system-style</code></td>
+<td>饮料发布广告系统：四套色彩变体模板</td>
+<td>饮料广告</td>
+<td>商业、活力</td>
+<td>—</td>
+<td>摄影 + 合成</td>
+</tr>
+</tbody>
+</table>
+<h3 id="n" class="doc-heading">N</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>56</td>
+<td>Naive Marker PSA Poster Style</td>
+<td><code>naive-marker-psa-poster-style</code></td>
+<td>友好手绘公共服务海报：粗不规则记号笔轮廓</td>
+<td>PSA 海报</td>
+<td>友好、手工</td>
+<td>—</td>
+<td>记号笔手绘</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Naive Marker Quote Card Style</td>
+<td><code>naive-marker-quote-card-style</code></td>
+<td>高瘦手绘荒诞引语卡片：粗糙黑色记号笔</td>
+<td>引语卡片</td>
+<td>荒诞、自制、冷面</td>
+<td>—</td>
+<td>记号笔手绘</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Neon Doodle Gallery Snapshot</td>
+<td><code>neon-doodle-gallery-snapshot-style</code></td>
+<td>随意手机照片 + 混乱霓虹数字记号笔涂鸦</td>
+<td>画廊快照</td>
+<td>霓虹、混乱</td>
+<td>—</td>
+<td>手机摄影 + 数字涂鸦</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Neon Kinetic Typographic Poster</td>
+<td><code>neon-kinetic-typographic-poster-style</code></td>
+<td>戏剧性户外编辑海报：低角度生活摄影 + 超大排版</td>
+<td>户外编辑海报</td>
+<td>戏剧、动态</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Neon Outdoor Diary Longform Collage Style</td>
+<td><code>neon-outdoor-diary-longform-collage-style</code></td>
+<td>高瘦移动优先户外日记海报：炭黑画布、纪实摄影</td>
+<td>户外日记</td>
+<td>活力、个人、户外</td>
+<td>—</td>
+<td>摄影 + 拼贴</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Neon Plush Gadget Pop 3D Style</td>
+<td><code>neon-plush-gadget-pop-3d-style</code></td>
+<td>光泽玩具广告 3D 风格：酸橙工作室、毛绒小工具</td>
+<td>玩具广告 3D</td>
+<td>俏皮、触感、收藏</td>
+<td>—</td>
+<td>C4D 3D 渲染</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Neon Stadium 3D Hero Type Poster Style</td>
+<td><code>neon-stadium-3d-hero-type-poster-style</code></td>
+<td>超饱和 3D 活动海报：玩具感英雄、极端低角度</td>
+<td>3D 活动海报</td>
+<td>快速、英雄、俏皮</td>
+<td>—</td>
+<td>C4D 3D 渲染</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Neon Type Photo Scribble Poster</td>
+<td><code>neon-type-photo-scribble-poster-style</code></td>
+<td>高冲击活动海报：有毒霓虹色场、巨大黑色排版</td>
+<td>活动海报</td>
+<td>竞争、响亮、城市</td>
+<td>—</td>
+<td>摄影 + 涂鸦</td>
+</tr>
+</tbody>
+</table>
+<h3 id="o" class="doc-heading">O</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>64</td>
+<td>Olive Scribble Sports Poster Style</td>
+<td><code>olive-scribble-sports-poster-style</code></td>
+<td>动态平面编辑插画：灰白纸、大橄榄绿</td>
+<td>体育编辑插画</td>
+<td>快速、原生、编辑</td>
+<td>—</td>
+<td>手绘插画</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Orange Brush Mascot Action Poster Style</td>
+<td><code>orange-brush-mascot-action-poster-style</code></td>
+<td>稀疏橙白黑平面插画：白色吉祥物、超大橙色</td>
+<td>吉祥物海报</td>
+<td>活力</td>
+<td>—</td>
+<td>平面插画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="p" class="doc-heading">P</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>66</td>
+<td>Photo Illustration Overlay Poster</td>
+<td><code>photo-illustration-overlay-poster-style</code></td>
+<td>真实城市照片 + 超大高饱和平面 2D 卡通人物合成</td>
+<td>照片插画合成</td>
+<td>城市、卡通</td>
+<td>—</td>
+<td>摄影 + 2D 合成</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Pink Anime Motorcycle Spec Poster Style</td>
+<td><code>pink-anime-motorcycle-spec-poster-style</code></td>
+<td>密集运动档案海报：原创动漫骑手 + 英雄摩托</td>
+<td>摩托档案海报</td>
+<td>活力、时尚、技术</td>
+<td>—</td>
+<td>动漫插画</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Playful Marker Grounding Poster Style</td>
+<td><code>playful-marker-grounding-poster-style</code></td>
+<td>天真手绘海报：奶油纸边距、松散记号笔拼贴</td>
+<td>PSA 手绘海报</td>
+<td>俏皮、手工、童趣</td>
+<td>—</td>
+<td>记号笔手绘</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Playful Mascot Doodle Snapshot Style</td>
+<td><code>playful-mascot-doodle-snapshot-style</code></td>
+<td>随意真实社交照片 + 卡通角色涂鸦叠加</td>
+<td>社交照片 + 涂鸦</td>
+<td>俏皮</td>
+<td>—</td>
+<td>摄影 + 手绘</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Plush City Festival Mobile Poster</td>
+<td><code>plush-city-festival-mobile-poster-style</code></td>
+<td>明亮移动活动海报：真实城市地标 + 柔软毛绒吉祥物</td>
+<td>活动海报</td>
+<td>明亮、柔软</td>
+<td>—</td>
+<td>摄影 + 3D 合成</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Plush Comic Toy Product Poster Style</td>
+<td><code>plush-comic-toy-product-poster-style</code></td>
+<td>响亮玩具产品海报：毛绒英雄、复古奶油海报</td>
+<td>玩具产品海报</td>
+<td>响亮、复古</td>
+<td>—</td>
+<td>漫画 + 3D</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Pop Bubble Letter Photo Poster Style</td>
+<td><code>pop-bubble-letter-photo-poster-style</code></td>
+<td>有力照片插画海报：中央低角度时尚肖像 + 泡泡字母</td>
+<td>照片插画海报</td>
+<td>有力、时尚</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Prismatic Glass Animal Weekend Editorial</td>
+<td><code>prismatic-glass-animal-weekend-editorial</code></td>
+<td>稀疏黑色编辑海报：超大半透明动物雕塑</td>
+<td>编辑海报</td>
+<td>稀疏、棱镜</td>
+<td>—</td>
+<td>3D 渲染</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q" class="doc-heading">Q</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>74</td>
+<td>Quiet Luxury Furniture Nameplate Poster Style</td>
+<td><code>quiet-luxury-furniture-nameplate-poster-style</code></td>
+<td>高端家具编辑海报：暖灰白工作室、超大铭牌排版</td>
+<td>家具目录海报</td>
+<td>高端、安静</td>
+<td>—</td>
+<td>产品摄影 + 排版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="r" class="doc-heading">R</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75</td>
+<td>Red Black Manga Tabloid Poster Style</td>
+<td><code>red-black-manga-tabloid-poster-style</code></td>
+<td>密集黑白猩红漫画小报海报：超大压缩排版</td>
+<td>漫画小报</td>
+<td>密集、戏剧</td>
+<td>—</td>
+<td>漫画插画</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Red Yellow Grunge Skate Cover Style</td>
+<td><code>red-yellow-grunge-skate-cover-style</code></td>
+<td>原始地下动作文化杂志封面：超大扭曲红黄标题</td>
+<td>滑板杂志封面</td>
+<td>粗犷、怀旧、嘈杂</td>
+<td>—</td>
+<td>拼贴</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Red Yellow Product Trophy Collage Style</td>
+<td><code>red-yellow-product-trophy-collage-style</code></td>
+<td>快餐广告牌产品拼贴：饱和红黄海报色</td>
+<td>产品拼贴广告</td>
+<td>快速、商业</td>
+<td>—</td>
+<td>摄影 + 拼贴</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Retro Future Chrome Portrait Dossier</td>
+<td><code>retro-future-chrome-portrait-dossier</code></td>
+<td>复古未来编辑肖像：不对称技术档案侧面</td>
+<td>复古未来肖像</td>
+<td>复古、未来</td>
+<td>—</td>
+<td>合成</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Rough Animation Pet Sketch Storyboard Style</td>
+<td><code>rough-animation-pet-sketch-storyboard-style</code></td>
+<td>松散动画开发草图风格：暖米色纸</td>
+<td>动画草图</td>
+<td>松散、温馨</td>
+<td>—</td>
+<td>手绘草图</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Rough Ink Music Doodle Poster Style</td>
+<td><code>rough-ink-music-doodle-poster-style</code></td>
+<td>粗糙手绘墨水海报：超大深绿黑刷子字母</td>
+<td>音乐涂鸦海报</td>
+<td>俏皮、手工、温馨</td>
+<td>—</td>
+<td>手绘墨水</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Rough Marker Monster Poster Style</td>
+<td><code>rough-marker-monster-poster-style</code></td>
+<td>天真儿童海报：粗黑记号笔轮廓、粗糙蜡笔粉彩</td>
+<td>儿童海报</td>
+<td>天真、俏皮</td>
+<td>—</td>
+<td>记号笔 + 蜡笔</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s" class="doc-heading">S</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>82</td>
+<td>Scarlet Block Cutout Doodle Book Cover Style</td>
+<td><code>scarlet-block-cutout-doodle-book-cover-style</code></td>
+<td>文学封面系统：白纸场地、超大猩红衬线字</td>
+<td>书籍封面</td>
+<td>文学、荒诞</td>
+<td>—</td>
+<td>剪贴插画</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Scarlet Court Photo Type Poster</td>
+<td><code>scarlet-court-photo-type-poster-style</code></td>
+<td>饱和动作广告海报：平面猩红场地、硬边蓝色照片</td>
+<td>动作广告</td>
+<td>动感</td>
+<td>scarlet red, electric court blue, cyan blue</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Scarlet Megatype Action Collage Style</td>
+<td><code>scarlet-megatype-action-collage-style</code></td>
+<td>高冲击动作海报：饱和猩红场地、超大对角排版</td>
+<td>体育编辑拼贴</td>
+<td>高冲击</td>
+<td>—</td>
+<td>摄影 + 丝网印</td>
+</tr>
+<tr>
+<td>85</td>
+<td>School Grid Paper Cutout Poster</td>
+<td><code>school-grid-paper-cutout-poster</code></td>
+<td>稀疏怀旧海报：暖教室网格纸、手绘竖排文字</td>
+<td>怀旧校园海报</td>
+<td>怀旧、安静、手工</td>
+<td>—</td>
+<td>手绘</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Sky Blue Home Life Doodle Poster Style</td>
+<td><code>sky-blue-home-life-doodle-poster-style</code></td>
+<td>天真平面海报：全天空蓝场地、白色房屋形内嵌</td>
+<td>家居海报</td>
+<td>俏皮、年轻、温馨</td>
+<td>—</td>
+<td>平面手绘</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Sky Blue Lucky Tag Doodle Poster Style</td>
+<td><code>sky-blue-lucky-tag-doodle-poster-style</code></td>
+<td>稀疏平面涂鸦海报：饱和天空蓝、粗白标题</td>
+<td>幸运涂鸦海报</td>
+<td>明亮、幸运、俏皮</td>
+<td>—</td>
+<td>平面手绘</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Soft Analog Future Editorial Poster</td>
+<td><code>soft-analog-future-editorial-poster-style</code></td>
+<td>安静模拟未来编辑海报：暖奶油纸、黑色新哥特字</td>
+<td>模拟未来编辑</td>
+<td>安静、未来</td>
+<td>—</td>
+<td>编辑设计</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Subway Doodle Photo Hybrid</td>
+<td><code>subway-doodle-photo-hybrid-style</code></td>
+<td>手机拍摄城市交通海报：纪实地铁或街道照片 + 涂鸦</td>
+<td>交通照片 + 涂鸦</td>
+<td>城市、纪实</td>
+<td>—</td>
+<td>手机摄影 + 涂鸦</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Sun-Faded Scenic Editorial Poster</td>
+<td><code>sun-faded-scenic-editorial-poster</code></td>
+<td>怀旧风景编辑海报：巨大暖象牙衬线标题</td>
+<td>风景编辑</td>
+<td>怀旧、褪色</td>
+<td>—</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Sunburst Fisheye Bubble Type Poster Style</td>
+<td><code>sunburst-fisheye-bubble-type-poster-style</code></td>
+<td>超低角度鱼眼夏日生活海报：近距摄影主体</td>
+<td>夏日生活海报</td>
+<td>夏日、活力</td>
+<td>—</td>
+<td>鱼眼摄影</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Sunlit Architectural Fashion Editorial</td>
+<td><code>sunlit-architectural-fashion-editorial</code></td>
+<td>精致户外高时尚编辑摄影：低角度建筑</td>
+<td>高时尚编辑</td>
+<td>精致、奢华</td>
+<td>sunlit ivory, warm stone beige, sand taupe</td>
+<td>时尚摄影</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Sunlit Coastal Product Blitz</td>
+<td><code>sunlit-coastal-product-blitz</code></td>
+<td>高密度写实海岸产品广告：日光桌面英雄产品</td>
+<td>海岸产品广告</td>
+<td>日光、商业</td>
+<td>turquoise ocean blue, sky blue, weathered wood brown</td>
+<td>产品摄影</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Sunlit Kinetic Block Type Photo Poster</td>
+<td><code>sunlit-kinetic-block-type-photo-poster-style</code></td>
+<td>高能编辑体育生活海报：全出血日光照片 + 排版</td>
+<td>体育生活海报</td>
+<td>高能</td>
+<td>sky blue, cyan blue, warm cream</td>
+<td>摄影 + 排版</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Sunlit Supermodel Nameplate Editorial</td>
+<td><code>sunlit-supermodel-nameplate-editorial</code></td>
+<td>暖色模拟时尚编辑海报：户外超模照片 + 排版</td>
+<td>时尚编辑</td>
+<td>轻松奢华</td>
+<td>—</td>
+<td>时尚摄影</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Sunny 3D Avatar Campaign Style</td>
+<td><code>sunny-3d-avatar-campaign-style</code></td>
+<td>明亮社交活动海报：光泽玩具感 3D 头像</td>
+<td>社交活动海报</td>
+<td>明亮、活泼</td>
+<td>electric sky blue, cloud white, grass green</td>
+<td>C4D 3D 渲染</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Surreal Fish Doodle Landmark Photo Collage Style</td>
+<td><code>surreal-fish-doodle-landmark-photo-collage-style</code></td>
+<td>明亮旅行照片拼贴：超大平面 2D 卡通旅行者、奇幻鱼</td>
+<td>旅行拼贴</td>
+<td>奇幻、旅行</td>
+<td>—</td>
+<td>摄影 + 2D 合成</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Surreal Megatype Dossier Collage</td>
+<td><code>surreal-megatype-dossier-collage</code></td>
+<td>密集新编辑海报：纪念性白色填充和轮廓排版叠加</td>
+<td>新编辑拼贴</td>
+<td>密集、超现实</td>
+<td>—</td>
+<td>拼贴</td>
+</tr>
+</tbody>
+</table>
+<h3 id="t" class="doc-heading">T</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>99</td>
+<td>Teenage Skate Scribble Screenprint Poster Style</td>
+<td><code>teenage-skate-scribble-screenprint-poster-style</code></td>
+<td>复古滑板杂志海报：扭曲中央滑板手剪贴、奶油纸</td>
+<td>滑板杂志海报</td>
+<td>复古、粗犷</td>
+<td>—</td>
+<td>丝网印</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Tokyo Kawaii Travel Collage Poster</td>
+<td><code>tokyo-kawaii-travel-collage-poster-style</code></td>
+<td>极繁日本城市旅行拼贴：粗体目的地排版、可爱贴纸</td>
+<td>旅行拼贴</td>
+<td>可爱、极繁</td>
+<td>—</td>
+<td>拼贴</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Tri Color Hardcut Portrait Poster Style</td>
+<td><code>tri-color-hardcut-portrait-poster-style</code></td>
+<td>干净三色硬切肖像海报：平面青色背景、珊瑚色肖像</td>
+<td>三色肖像海报</td>
+<td>干净、平面</td>
+<td>—</td>
+<td>平面插画</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Turquoise Red Techno Manga Poster Style</td>
+<td><code>turquoise-red-techno-manga-poster-style</code></td>
+<td>复古科技漫画海报：奶油纸、巨大红色展示字</td>
+<td>科技漫画海报</td>
+<td>复古、科技</td>
+<td>—</td>
+<td>漫画插画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="u" class="doc-heading">U</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>103</td>
+<td>Urban Photo Ink Beast Collage Style</td>
+<td><code>urban-photo-ink-beast-collage-style</code></td>
+<td>超现实编辑拼贴：巨型平面墨水野兽 + 微型剧场</td>
+<td>编辑拼贴</td>
+<td>超现实</td>
+<td>—</td>
+<td>摄影 + 墨水插画</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Urban Transit Doodle Diary Style</td>
+<td><code>urban-transit-doodle-diary-style</code></td>
+<td>原始城市快照个人视觉日记：真实公共空间照片</td>
+<td>城市日记</td>
+<td>原始、个人</td>
+<td>—</td>
+<td>摄影 + 涂鸦</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v" class="doc-heading">V</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>105</td>
+<td>Vermilion Photocopy Tension Editorial</td>
+<td><code>vermilion-photocopy-tension-editorial</code></td>
+<td>对抗性编辑海报：超大裁切黑白照片、朱红色</td>
+<td>编辑海报</td>
+<td>紧张、内省、叛逆</td>
+<td>—</td>
+<td>复印 + 排版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="w" class="doc-heading">W</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>106</td>
+<td>Warm Fisheye Product Impact Ad Style</td>
+<td><code>warm-fisheye-product-impact-ad-style</code></td>
+<td>高冲击产品广告：超广角近距摄影、隧道暖色渐变</td>
+<td>产品广告</td>
+<td>高冲击</td>
+<td>—</td>
+<td>鱼眼摄影</td>
+</tr>
+</tbody>
+</table>
+<h3 id="x" class="doc-heading">X</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>107</td>
+<td>Xerox Neon Editorial Collage</td>
+<td><code>xerox-neon-editorial-collage-style</code></td>
+<td>高冲击编辑海报：超大做旧黑色标题、霓虹色场</td>
+<td>编辑拼贴</td>
+<td>反叛、动感、手工</td>
+<td>—</td>
+<td>复印 + 霓虹</td>
+</tr>
+</tbody>
+</table>
+<h3 id="y" class="doc-heading">Y</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>风格名称</th>
+<th>slug</th>
+<th>概述</th>
+<th>分类</th>
+<th>情绪</th>
+<th>主色调</th>
+<th>渲染</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>108</td>
+<td>Y2K Grunge Hip-Hop Cutout Poster Style</td>
+<td><code>y2k-grunge-hiphop-cutout-poster-style</code></td>
+<td>Y2K 垃圾嘻哈杂志拼贴海报：超大照片剪贴、酸色</td>
+<td>Y2K 嘻哈杂志</td>
+<td>垃圾、嘻哈</td>
+<td>—</td>
+<td>拼贴</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Y2K Mirror UI Scribble Collage Style</td>
+<td><code>y2k-mirror-ui-scribble-collage-style</code></td>
+<td>粗糙 Y2K 照片拼贴：广角闪光摄影、漂浮桌面 UI</td>
+<td>Y2K 拼贴</td>
+<td>粗糙、数字</td>
+<td>—</td>
+<td>摄影 + 数字拼贴</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Y2K Streetwear Sticker Collage Style</td>
+<td><code>y2k-streetwear-sticker-collage-style</code></td>
+<td>密集 Y2K 街头照片拼贴：超大剪贴主体、贴纸道具</td>
+<td>Y2K 街头拼贴</td>
+<td>响亮、俏皮、街头</td>
+<td>—</td>
+<td>摄影拼贴</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Yellow Black Manga Food Zine Ad Style</td>
+<td><code>yellow-black-manga-food-zine-ad-style</code></td>
+<td>密集日本漫画风食品和产品杂志广告：黑墨线</td>
+<td>漫画食品广告</td>
+<td>密集、漫画</td>
+<td>ink black, manga yellow, cream paper white</td>
+<td>漫画插画</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Yellow Graffiti Fisheye Manga Street Poster Style</td>
+<td><code>yellow-graffiti-fisheye-manga-street-poster-style</code></td>
+<td>混合街头海报：冷色鱼眼城市照片 + 大漫画墨水涂鸦</td>
+<td>街头海报</td>
+<td>混合、街头</td>
+<td>—</td>
+<td>鱼眼摄影 + 漫画</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七风格分类索引" class="doc-heading">七、风格分类索引</h2>
+<h3 id="按渲染模式分类" class="doc-heading">按渲染模式分类</h3>
+<table>
+<thead>
+<tr>
+<th>渲染模式</th>
+<th>相关风格 slug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C4D / 3D 渲染</strong></td>
+<td><code>acid-lime-3d-streetwear-type-poster-style</code>, <code>blue-hud-macro-product-poster</code>, <code>liquid-chrome-clearance-poster-style</code>, <code>neon-plush-gadget-pop-3d-style</code>, <code>neon-stadium-3d-hero-type-poster-style</code>, <code>prismatic-glass-animal-weekend-editorial</code>, <code>sunny-3d-avatar-campaign-style</code></td>
+</tr>
+<tr>
+<td><strong>摄影 + 涂鸦/合成</strong></td>
+<td><code>backseat-transit-doodle-letter-poster-style</code>, <code>cozy-bedroom-doodle-companion-snapshot-style</code>, <code>gothic-cat-doodle-photo-collage-style</code>, <code>metro-doodle-snapshot-diary-style</code>, <code>mountain-trail-monster-doodle-poster-style</code>, <code>neon-doodle-gallery-snapshot-style</code>, <code>photo-illustration-overlay-poster-style</code>, <code>playful-mascot-doodle-snapshot-style</code>, <code>plush-city-festival-mobile-poster-style</code>, <code>subway-doodle-photo-hybrid-style</code>, <code>surreal-fish-doodle-landmark-photo-collage-style</code>, <code>urban-transit-doodle-diary-style</code>, <code>urban-photo-ink-beast-collage-style</code></td>
+</tr>
+<tr>
+<td><strong>手绘 / 记号笔 / 蜡笔</strong></td>
+<td><code>analog-sticker-diary-portrait-poster-style</code>, <code>crayon-catalog-doodle-poster-style</code>, <code>fantasy-scribble-mascot-poster-style</code>, <code>kinetic-geometric-doodle-cutouts</code>, <code>naive-marker-psa-poster-style</code>, <code>naive-marker-quote-card-style</code>, <code>olive-scribble-sports-poster-style</code>, <code>playful-marker-grounding-poster-style</code>, <code>rough-animation-pet-sketch-storyboard-style</code>, <code>rough-ink-music-doodle-poster-style</code>, <code>rough-marker-monster-poster-style</code>, <code>school-grid-paper-cutout-poster</code>, <code>sky-blue-home-life-doodle-poster-style</code>, <code>sky-blue-lucky-tag-doodle-poster-style</code></td>
+</tr>
+<tr>
+<td><strong>漫画 / 动漫插画</strong></td>
+<td><code>blue-lime-kinetic-comic-type-poster-style</code>, <code>bold-anime-reaction-thumbnail-style</code>, <code>cream-smoke-city-manga-poster-style</code>, <code>crimson-ink-manga-dossier</code>, <code>electric-blue-cutout-manga-poster-style</code>, <code>hot-ink-comic-poster</code>, <code>impact-burst-halftone-comic-poster-style</code>, <code>pink-anime-motorcycle-spec-poster-style</code>, <code>red-black-manga-tabloid-poster-style</code>, <code>turquoise-red-techno-manga-poster-style</code>, <code>yellow-black-manga-food-zine-ad-style</code>, <code>yellow-graffiti-fisheye-manga-street-poster-style</code></td>
+</tr>
+<tr>
+<td><strong>摄影 + 排版（编辑/广告）</strong></td>
+<td><code>chromatic-fisheye-orbit-pop-poster-style</code>, <code>clean-triptych-travel-vlog-thumbnail-style</code>, <code>cobalt-megatype-roadside-travel-editorial-style</code>, <code>cobalt-torn-didone-portrait-editorial-style</code>, <code>coral-window-megatype-motion-poster-style</code>, <code>dusk-cyan-layered-type-poster-style</code>, <code>electric-cobalt-motion-type-poster-style</code>, <code>folded-diamond-perspective-type-poster-style</code>, <code>folded-newspaper-product-ad-style</code>, <code>foreshortened-gradient-impact-ad-style</code>, <code>ice-cyan-megatype-action-poster-style</code>, <code>jagged-red-street-photo-event-poster-style</code>, <code>kinetic-editorial-photo-collage-style</code>, <code>kinetic-luxury-street-fashion-cover-style</code>, <code>lime-loop-megatype-action-poster-style</code>, <code>luxury-perspective-checkerboard-editorial</code>, <code>neon-kinetic-typographic-poster-style</code>, <code>neon-outdoor-diary-longform-collage-style</code>, <code>neon-type-photo-scribble-poster-style</code>, <code>pop-bubble-letter-photo-poster-style</code>, <code>quiet-luxury-furniture-nameplate-poster-style</code>, <code>scarlet-court-photo-type-poster-style</code>, <code>scarlet-megatype-action-collage-style</code>, <code>sun-faded-scenic-editorial-poster</code>, <code>sunburst-fisheye-bubble-type-poster-style</code>, <code>sunlit-architectural-fashion-editorial</code>, <code>sunlit-coastal-product-blitz</code>, <code>sunlit-kinetic-block-type-photo-poster-style</code>, <code>sunlit-supermodel-nameplate-editorial</code>, <code>vermilion-photocopy-tension-editorial</code>, <code>warm-fisheye-product-impact-ad-style</code>, <code>y2k-grunge-hiphop-cutout-poster-style</code>, <code>y2k-mirror-ui-scribble-collage-style</code>, <code>y2k-streetwear-sticker-collage-style</code></td>
+</tr>
+<tr>
+<td><strong>拼贴 / 复印 / Riso</strong></td>
+<td><code>blue-halftone-ransom-zine-poster-style</code>, <code>cobalt-xerox-script-editorial-poster-style</code>, <code>crimson-noir-newsprint-editorial-style</code>, <code>cyan-grain-macro-megatype-poster-style</code>, <code>halftone-assemblage-metaphor-psa-poster-style</code>, <code>k-pop-apocalypse-ransom-zine-style</code>, <code>loose-scribble-riso-print-style</code>, <code>manga-dossier-blueprint-poster</code>, <code>monochrome-xerox-sports-dossier</code>, <code>red-yellow-grunge-skate-cover-style</code>, <code>red-yellow-product-trophy-collage-style</code>, <code>retro-future-chrome-portrait-dossier</code>, <code>scarlet-block-cutout-doodle-book-cover-style</code>, <code>surreal-megatype-dossier-collage</code>, <code>teenage-skate-scribble-screenprint-poster-style</code>, <code>tokyo-kawaii-travel-collage-poster-style</code>, <code>xerox-neon-editorial-collage-style</code></td>
+</tr>
+<tr>
+<td><strong>平面设计 / 排版海报</strong></td>
+<td><code>blue-chinese-perspective-type-canyon-style</code>, <code>bold-block-mascot-poster-style</code>, <code>cyan-red-shockwave-type-poster-style</code>, <code>electric-blue-silhouette-product-launch-style</code>, <code>jade-glyph-grocer-collage-poster-style</code>, <code>orange-brush-mascot-action-poster-style</code>, <code>soft-analog-future-editorial-poster-style</code>, <code>tri-color-hardcut-portrait-poster-style</code></td>
+</tr>
+<tr>
+<td><strong>黑白 / 单色</strong></td>
+<td><code>mono-noir-type-portrait-poster-style</code>, <code>monochrome-grid-sneaker-tech-spec</code>, <code>monochrome-xerox-sports-dossier</code>, <code>crimson-noir-newsprint-editorial-style</code>, <code>vermilion-photocopy-tension-editorial</code></td>
+</tr>
+<tr>
+<td><strong>食品广告</strong></td>
+<td><code>black-cutout-food-card-ad-style</code>, <code>yellow-black-manga-food-zine-ad-style</code>, <code>multi-color-beverage-splash-ad-system-style</code>, <code>market-brush-produce-poster-style</code>, <code>sunlit-coastal-product-blitz</code>, <code>red-yellow-product-trophy-collage-style</code>, <code>folded-newspaper-product-ad-style</code></td>
+</tr>
+<tr>
+<td><strong>鱼眼摄影</strong></td>
+<td><code>blue-bubble-fisheye-action-poster-style</code>, <code>chromatic-fisheye-orbit-pop-poster-style</code>, <code>sunburst-fisheye-bubble-type-poster-style</code>, <code>warm-fisheye-product-impact-ad-style</code>, <code>yellow-graffiti-fisheye-manga-street-poster-style</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="按画面比例" class="doc-heading">按画面比例</h3>
+<p>所有 112 套风格均支持 <strong>16:9 横版</strong> 和 <strong>9:16 竖版</strong>，每套风格文件夹内含两张对应预览图。</p>
+<hr />
+<h2 id="八schema-文件" class="doc-heading">八、Schema 文件</h2>
+<p>完整的 JSON Schema 定义位于项目根目录：</p>
+<pre><code>schemas/style-v2.1.schema.json
+</code></pre>
+<p>可用于验证新增 style.json 文件的格式合规性。</p>
+<hr />
+<h2 id="九扩展指南" class="doc-heading">九、扩展指南</h2>
+<h3 id="新增风格" class="doc-heading">新增风格</h3>
+<ol>
+<li>在 <code>styles/</code> 下新建文件夹，命名为 <code>{slug}</code>（全小写连字符）</li>
+<li>编写 <code>style.json</code>，遵循 v2.1 schema，填入所有必填字段</li>
+<li>放入 2 张预览图：<code>{slug}-16x9.jpg</code> 和 <code>{slug}-9x16.jpg</code></li>
+<li>使用 <code>scripts/generate-copy-prompts.py</code> 生成对应的 <code>.md</code> 文件</li>
+<li>更新本知识库文档的风格目录</li>
+</ol>
+<h3 id="修改风格" class="doc-heading">修改风格</h3>
+<ol>
+<li>直接编辑对应文件夹的 <code>style.json</code></li>
+<li>重新运行生成脚本更新 <code>.md</code> 文件</li>
+<li><code>.md</code> 文件底部注释标记为自动生成，请勿手动编辑</li>
+</ol>
+<hr />
+<h2 id="十快速检索速查" class="doc-heading">十、快速检索速查</h2>
+<blockquote>
+<p>AI 收到图像生成需求时，按以下关键词映射快速定位风格：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>需求关键词</th>
+<th>推荐风格 slug（举例）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3D 玩具/潮玩</td>
+<td><code>acid-lime-3d-streetwear-type-poster-style</code>, <code>neon-plush-gadget-pop-3d-style</code>, <code>sunny-3d-avatar-campaign-style</code></td>
+</tr>
+<tr>
+<td>食品/餐饮广告</td>
+<td><code>black-cutout-food-card-ad-style</code>, <code>yellow-black-manga-food-zine-ad-style</code>, <code>market-brush-produce-poster-style</code></td>
+</tr>
+<tr>
+<td>漫画/动漫</td>
+<td><code>bold-anime-reaction-thumbnail-style</code>, <code>crimson-ink-manga-dossier</code>, <code>electric-blue-cutout-manga-poster-style</code></td>
+</tr>
+<tr>
+<td>时尚/编辑</td>
+<td><code>cobalt-torn-didone-portrait-editorial-style</code>, <code>kinetic-luxury-street-fashion-cover-style</code>, <code>sunlit-supermodel-nameplate-editorial</code></td>
+</tr>
+<tr>
+<td>旅行/风景</td>
+<td><code>clean-triptych-travel-vlog-thumbnail-style</code>, <code>cobalt-megatype-roadside-travel-editorial-style</code>, <code>sun-faded-scenic-editorial-poster</code></td>
+</tr>
+<tr>
+<td>科技/产品</td>
+<td><code>blue-hud-macro-product-poster</code>, <code>electric-blue-silhouette-product-launch-style</code>, <code>monochrome-grid-sneaker-tech-spec</code></td>
+</tr>
+<tr>
+<td>手绘/涂鸦</td>
+<td><code>naive-marker-psa-poster-style</code>, <code>school-grid-paper-cutout-poster</code>, <code>crayon-catalog-doodle-poster-style</code></td>
+</tr>
+<tr>
+<td>复古/怀旧</td>
+<td><code>hot-ink-comic-poster</code>, <code>teenage-skate-scribble-screenprint-poster-style</code>, <code>loose-scribble-riso-print-style</code></td>
+</tr>
+<tr>
+<td>黑白/极简</td>
+<td><code>mono-noir-type-portrait-poster-style</code>, <code>electric-blue-silhouette-product-launch-style</code>, <code>prismatic-glass-animal-weekend-editorial</code></td>
+</tr>
+<tr>
+<td>Y2K/赛博</td>
+<td><code>y2k-grunge-hiphop-cutout-poster-style</code>, <code>liquid-chrome-clearance-poster-style</code>, <code>y2k-mirror-ui-scribble-collage-style</code></td>
+</tr>
+<tr>
+<td>中文排版</td>
+<td><code>blue-chinese-perspective-type-canyon-style</code>, <code>jade-glyph-grocer-collage-poster-style</code>, <code>black-cutout-food-card-ad-style</code></td>
+</tr>
+<tr>
+<td>体育/动作</td>
+<td><code>ice-cyan-megatype-action-poster-style</code>, <code>scarlet-megatype-action-collage-style</code>, <code>olive-scribble-sports-poster-style</code></td>
+</tr>
+<tr>
+<td>鱼眼/超广角</td>
+<td><code>blue-bubble-fisheye-action-poster-style</code>, <code>chromatic-fisheye-orbit-pop-poster-style</code>, <code>warm-fisheye-product-impact-ad-style</code></td>
+</tr>
+<tr>
+<td>PSA/公益</td>
+<td><code>naive-marker-psa-poster-style</code>, <code>halftone-assemblage-metaphor-psa-poster-style</code>, <code>playful-marker-grounding-poster-style</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>本文档最后更新：2026-08-10</em>
+<em>风格总数：112 套 | Schema 版本：v2.1</em></p>
+    </div>
+  </main>
+</div>
+<script>
+  // 点击平滑滚动
+  const links = Array.from(document.querySelectorAll('.toc-nav a'));
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('data-target');
+    const el = document.getElementById(id);
+    if (el) map.set(el, a);
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      el && el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + id);
+    });
+  });
+  // 滚动高亮：按位置定位当前章节，并联动父级 h2
+  let curH2 = null;
+  const spy = [];
+  links.forEach(a => {
+    const id = a.getAttribute('data-target');
+    const el = document.getElementById(id);
+    if (!el) return;
+    const li = a.parentElement;
+    let parent = null;
+    if (li.classList.contains('toc-h3')) parent = curH2;
+    else if (li.classList.contains('toc-h2')) curH2 = a;
+    spy.push({ a, el, parent });
+  });
+  function updateSpy() {
+    const pos = window.scrollY + 120;
+    let current = null;
+    spy.forEach(o => {
+      const top = o.el.getBoundingClientRect().top + window.scrollY;
+      if (top <= pos) current = o;
+    });
+    spy.forEach(o => o.a.classList.remove('active'));
+    if (current) {
+      current.a.classList.add('active');
+      if (current.parent) current.parent.classList.add('active');
+    }
+  }
+  window.addEventListener('scroll', updateSpy, { passive: true });
+  window.addEventListener('resize', updateSpy);
+  updateSpy();
+</script>
+</body>
+</html>

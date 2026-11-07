@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视觉资料库 · 索引</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+       margin:0; padding:32px; background:#f6f7f9; color:#1c1e21; }
+h1 { font-size:22px; margin:0 0 6px; }
+.sub { color:#65676b; font-size:13px; margin-bottom:24px; }
+.group { margin-bottom:26px; }
+.group h2 { font-size:15px; color:#444; border-left:3px solid #1877f2; padding-left:8px; margin:0 0 12px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:12px; }
+.card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px; text-decoration:none; color:inherit;
+        box-shadow:0 1px 2px rgba(0,0,0,.04); transition:.15s; }
+.card:hover { border-color:#1877f2; box-shadow:0 4px 12px rgba(24,119,242,.12); transform:translateY(-1px); }
+.card .t { font-weight:600; font-size:14px; }
+.card .d { font-size:12px; color:#6b7280; margin-top:4px; line-height:1.5; }
+code { background:#eef2f7; padding:2px 6px; border-radius:4px; font-size:12px; }
+.note { background:#fff7e6; border:1px solid #ffe0a3; border-radius:8px; padding:12px 14px; font-size:13px; line-height:1.6; }
+.note b { color:#a85b00; }
+</style></head>
+<body>
+<h1>视觉资料库</h1>
+<div class="sub">风格提示词 / 设计参考 / GPT 提示词库 的统一入口。双击本页用浏览器打开即可。</div>
+
+<div class="group">
+  <h2>风格总览（AI Visual Prompt Cookbook · 112 套）</h2>
+  <div class="cards">
+    <a class="card" href="styles-overview.html" target="_blank">
+      <div class="t">风格总览表</div>
+      <div class="d">112 个风格的标题 / 提示词 / 16:9 / 9:16 预览 / style.json。可搜索、排序、点图放大、一键复制提示词。</div>
+    </a>
+    <a class="card" href="风格库说明/DESIGN-REFERENCE.html" target="_blank">
+      <div class="t">设计引用知识库</div>
+      <div class="d">112 套风格的设计规范与引用说明。</div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <h2>风格库说明 / 参考文档</h2>
+  <div class="cards">
+    <a class="card" href="风格库说明/README.md" target="_blank">
+      <div class="t">Copy Prompt 速查表</div>
+      <div class="d">按风格整理的一键复制提示词清单（由原仓库 README 生成）。</div>
+    </a>
+    <a class="card" href="风格库说明/%E4%B8%80%E4%B8%AA%E4%B8%BAAI%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E7%B2%BE%E5%BF%83%E6%95%B4%E7%90%86%E7%9A%84%E5%8F%AF%E5%A4%8D%E7%94%A8%20JSON%20%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%A8%A1%E6%9D%BF%E4%B8%8E%E9%A3%8E%E6%A0%BC%E5%8F%82%E8%80%83%E5%90%88%E9%9B%86Updated%20daily.md" target="_blank">
+      <div class="t">可复用 JSON 提示词模板合集（项目 README）</div>
+      <div class="d">每日更新的提示词模板合集说明文档。</div>
+    </a>
+    <a class="card" href="风格库说明/DESIGN-REFERENCE.md" target="_blank">
+      <div class="t">设计引用知识库（Markdown）</div>
+      <div class="d">设计引用知识库的源 Markdown。</div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <h2>GPT 图像提示词库</h2>
+  <div class="cards">
+    <a class="card" href="GPT提示词库/GPT-IMAGE-PROMPT-LIBRARY.html" target="_blank">
+      <div class="t">GPT 提示词库（网页）</div>
+      <div class="d">可点击导航的 HTML 版提示词合集。</div>
+    </a>
+    <a class="card" href="GPT提示词库/GPT-IMAGE-PROMPT-LIBRARY.md" target="_blank">
+      <div class="t">GPT 提示词库（Markdown）</div>
+      <div class="d">源 Markdown 文档。</div>
+    </a>
+    <a class="card" href="GPT提示词库/GPT-image.md" target="_blank">
+      <div class="t">GPT-image.md</div>
+      <div class="d">GPT 图像相关笔记。</div>
+    </a>
+    <a class="card" href="GPT提示词库/md_to_html.py" target="_blank">
+      <div class="t">md_to_html.py</div>
+      <div class="d">Markdown 转可导航 HTML 的转换脚本。</div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <h2>工具脚本</h2>
+  <div class="cards">
+    <a class="card" href="sync-readme.py" target="_blank">
+      <div class="t">sync-readme.py</div>
+      <div class="d">从 GitHub README 抓取最新风格列表并重新生成 styles-overview.html / .csv。</div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <h2>更新风格总览表</h2>
+  <div class="note">
+    当 GitHub 仓库新增风格后，在 <b>视觉资料库</b> 目录运行：<br>
+    <code>python sync-readme.py</code><br>
+    需要把新增的图片/json 也下载到本地时加 <code>--download</code>：<br>
+    <code>python sync-readme.py --download</code><br>
+    脚本会从 <code>AI-Visual-Prompt-Cookbook-main/styles</code> 读取本地数据，图片与 style.json 链接使用 file:// 绝对路径，双击 HTML 即可查看。
+  </div>
+</div>
+
+</body></html>
